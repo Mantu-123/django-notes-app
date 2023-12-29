@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mynote-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: note-app
+  template:
+    metadata:
+      labels:
+        name: note-app
+    spec:
+      containers:
+      - name: mynote-app
+        image: mantu910/my-note:latest
+        ports:
+        - containerPort: 80
